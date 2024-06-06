@@ -1,43 +1,42 @@
+import React, { useState, useEffect } from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, View, ScrollView, Text, TouchableHighlight } from 'react-native'
-import { useState } from 'react'
+import { StyleSheet, View, ScrollView, Text, TouchableHighlight, Modal, Image } from 'react-native'
 import { ProductItem } from './src/components/ProductItem'
+import mainIcon from './src/assets/Icon.svg'
 
 export default function App () {
   const [products, setProducts] = useState([
-    {
-      title: 'hola',
-      selected: true
-    },
-    {
-      title: 'este no',
-      selected: false
-    },
-    {
-      title: 'este si',
-      selected: true
-    },
-    {
-      title: 'adios',
-      selected: false
-    },
-    {
-      title: 'algo',
-      selected: true
-    },
-    {
-      title: 'nose',
-      selected: false
-    }
+    { title: 'hola', selected: true },
+    { title: 'este no', selected: false },
+    { title: 'este si', selected: true },
+    { title: 'adios', selected: false },
+    { title: 'algo', selected: true },
+    { title: 'nose', selected: false }
   ])
-  const selectedItems = products.filter(item => {
-    return item.selected
+  const [modal, setModal] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setModal(false)
+    }, 5000)
+
+    return () => clearTimeout(timer)
   })
-  const renderSelectedItems = selectedItems.map((item, idx) => {
-    return <ProductItem key={`i${idx}`} text={item.title} />
-  })
+
+  const selectedItems = products.filter(item => item.selected)
+  const renderSelectedItems = selectedItems.map((item, idx) => (
+    <ProductItem key={`i${idx}`} text={item.title} />
+  ))
+
   return (
     <View style={styles.screen}>
+      <Modal visible={modal} transparent animationType='fade'>
+        <View style={styles.modal}>
+          <Image source={mainIcon} style={styles.imagen} />
+          <StatusBar hidden />
+        </View>
+      </Modal>
+
       <ScrollView>
         <View style={styles.container}>
           <View style={[styles.list, styles.selectedItems]}>
@@ -52,11 +51,11 @@ export default function App () {
             })}
           </View>
         </View>
-        <StatusBar style='auto' />
       </ScrollView>
+
+      <StatusBar style='auto' />
       <TouchableHighlight style={styles.add}><Text>+</Text></TouchableHighlight>
     </View>
-
   )
 }
 
@@ -89,6 +88,16 @@ const styles = StyleSheet.create({
     bottom: 20,
     right: 20,
     fontSize: 30
-
+  },
+  modal: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'black'
+  },
+  imagen: {
+    width: '60%',
+    height: '60%',
+    resizeMode: 'contain'
   }
 })
