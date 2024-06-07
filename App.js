@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, View, ScrollView, Text, TouchableHighlight, Modal, Image } from 'react-native'
+import { StyleSheet, View, ScrollView, Text, TouchableHighlight, Modal } from 'react-native'
 import { ProductItem } from './src/components/ProductItem'
-import mainIcon from './src/assets/Icon.svg'
+import Logo from './src/assets/Logo.svg'
+import Load from './src/components/Load.js'
 
 export default function App () {
   const [products, setProducts] = useState([
@@ -21,7 +22,7 @@ export default function App () {
     }, 5000)
 
     return () => clearTimeout(timer)
-  })
+  }, [])
 
   const selectedItems = products.filter(item => item.selected)
   const renderSelectedItems = selectedItems.map((item, idx) => (
@@ -32,7 +33,8 @@ export default function App () {
     <View style={styles.screen}>
       <Modal visible={modal} transparent animationType='fade'>
         <View style={styles.modal}>
-          <Image source={mainIcon} style={styles.imagen} />
+          <Logo width={200} height={200} />
+          <Load size={100} strokeWidth={10} />
           <StatusBar hidden />
         </View>
       </Modal>
@@ -94,10 +96,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'black'
-  },
-  imagen: {
-    width: '60%',
-    height: '60%',
-    resizeMode: 'contain'
   }
 })
