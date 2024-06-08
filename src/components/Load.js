@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { View, StyleSheet, Animated, Easing, Text } from 'react-native'
 
-export default function Load ({ size = 100, strokeWidth = 10, color = 'blue' }) {
+export default function Load () {
   const circleAnim = useRef(new Animated.Value(0)).current
 
   useEffect(() => {
