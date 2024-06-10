@@ -1,33 +1,30 @@
 import React, { useState, useEffect } from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, View, ScrollView, Text, TouchableHighlight, Modal } from 'react-native'
-import { ProductItem } from './src/components/ProductItem'
+import { StyleSheet, View, Text, Modal } from 'react-native'
 import Logo from './src/assets/Logo.svg'
 import Load from './src/components/Load.js'
+import { Navbar } from './src/components/Navbar.js'
+import { Stats } from './src/screens/Stats.js'
 
 export default function App () {
-  const [products, setProducts] = useState([
-    { title: 'hola', selected: true },
-    { title: 'este no', selected: false },
-    { title: 'este si', selected: true },
-    { title: 'adios', selected: false },
-    { title: 'algo', selected: true },
-    { title: 'nose', selected: false }
-  ])
+  // const [products, setProducts] = useState([
+  //   { title: 'hola', selected: true },
+  //   { title: 'este no', selected: false },
+  //   { title: 'este si', selected: true },
+  //   { title: 'adios', selected: false },
+  //   { title: 'algo', selected: true },
+  //   { title: 'nose', selected: false }
+  // ])
   const [modal, setModal] = useState(true)
+  const [tab, setTab] = useState()
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setModal(false)
-    }, 5000)
+    }, 2000)
 
     return () => clearTimeout(timer)
   }, [])
-
-  const selectedItems = products.filter(item => item.selected)
-  const renderSelectedItems = selectedItems.map((item, idx) => (
-    <ProductItem key={`i${idx}`} text={item.title} />
-  ))
 
   return (
     <View style={styles.screen}>
@@ -39,57 +36,41 @@ export default function App () {
         </View>
       </Modal>
 
-      <ScrollView>
-        <View style={styles.container}>
-          <View style={[styles.list, styles.selectedItems]}>
-            {renderSelectedItems}
-          </View>
-
-          <View style={[styles.list, styles.unselectedList]}>
-            {products.filter(item => {
-              return !item.selected
-            }).map((item, idx) => {
-              return <ProductItem key={`i${idx}`} text={item.title} />
-            })}
-          </View>
-        </View>
-      </ScrollView>
-
       <StatusBar style='auto' />
-      <TouchableHighlight style={styles.add}><Text>+</Text></TouchableHighlight>
+      <Text> BETA 3.2 </Text>
+      {tab}
+      <Navbar onChangeTab={setTab} />
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   screen: {
-    flex: 1
+    flex: 1,
+    backgroundColor: 'silver'
   },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'silver',
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 50,
     gap: 30
   },
-  list: {
-    gap: 10,
-    borderRadius: 15,
-    padding: 20,
-    width: '90%'
-  },
-  selectedItems: {
-    backgroundColor: '#efe'
-  },
-  unselectedList: {
-    backgroundColor: '#fee'
-  },
-  add: {
+  buttons: {
     position: 'absolute',
-    bottom: 20,
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+    bottom: 75,
     right: 20,
-    fontSize: 30
+    fontSize: 30,
+    borderRadius: 10,
+    gap: 10
+  },
+  button: {
+    padding: 10,
+    backgroundColor: '#aaa',
+    borderRadius: 10
   },
   modal: {
     flex: 1,
