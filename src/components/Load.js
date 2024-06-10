@@ -8,7 +8,7 @@ export default function Load () {
     const animation = Animated.loop(
       Animated.timing(circleAnim, {
         toValue: 1,
-        duration: 5000,
+        duration: 3000,
         easing: Easing.linear,
         useNativeDriver: true
       })
