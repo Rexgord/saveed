@@ -4,7 +4,6 @@ import { StyleSheet, View, Text, Modal } from 'react-native'
 import Logo from './src/assets/Logo.svg'
 import Load from './src/components/Load.js'
 import { Navbar } from './src/components/Navbar.js'
-import { Stats } from './src/screens/Stats.js'
 
 export default function App () {
   // const [products, setProducts] = useState([
@@ -35,9 +34,13 @@ export default function App () {
           <StatusBar hidden />
         </View>
       </Modal>
+      <View style={styles.header}>
+        <Logo width={100} height={100} style={styles.img} />
+        <Text style={styles.title}>saveed</Text>
+      </View>
 
-      <StatusBar style='auto' />
-      <Text> BETA 3.2 </Text>
+      <StatusBar hidden />
+      <Text style={{ textAlign: 'center' }}> BETA 3.3 </Text>
       {tab}
       <Navbar onChangeTab={setTab} />
     </View>
@@ -47,7 +50,9 @@ export default function App () {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: 'silver'
+    backgroundColor: 'silver',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   container: {
     flex: 1,
@@ -74,8 +79,23 @@ const styles = StyleSheet.create({
   },
   modal: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'black'
+    backgroundColor: 'black',
+    justifyContent: 'space-between'
+  },
+  header: {
+    alignItems: 'center',
+    gap: 10,
+    top: 100,
+    position: 'absolute',
+    flexDirection: 'row'
+  },
+  title: {
+    fontSize: 30
+  },
+  img: {
+    width: 50,
+    aspectRatio: 1,
+    borderRadius: '100%'
   }
 })

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { View, StyleSheet, Animated, Easing, Text } from 'react-native'
+import { View, StyleSheet, Animated, Easing, Text} from 'react-native'
 
 export default function Load () {
   const circleAnim = useRef(new Animated.Value(0)).current
@@ -27,8 +27,8 @@ export default function Load () {
   return (
     <View style={styles.container}>
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-        <Animated.View style={[styles.line, { transform: [{ rotate: angle }] }]} />
-        <Text style={styles.text}>Load...</Text>
+        {/* <Animated.View style={[styles.line, { transform: [{ rotate: angle }] }]} /> */}
+        <Text style={styles.text}>SAVEED</Text>
       </View>
     </View>
   )
@@ -49,6 +49,8 @@ const styles = StyleSheet.create({
   text: {
     marginLeft: 10,
     color: '#fff',
-    fontSize: 20
+    fontSize: 20,
+    textShadowOffset: { width: 5, height: 5 },
+    textShadowColor: 'silver'
   }
 })

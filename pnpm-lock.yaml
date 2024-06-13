@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@tabler/icons-react-native':
-        specifier: ^3.5.0
-        version: 3.5.0(react@18.2.0)
       expo:
         specifier: ~51.0.9
         version: 51.0.9(@babel/core@7.24.6)(@babel/preset-env@7.24.6(@babel/core@7.24.6))
@@ -23,6 +20,9 @@ importers:
       react-native:
         specifier: 0.74.1
         version: 0.74.1(@babel/core@7.24.6)(@babel/preset-env@7.24.6(@babel/core@7.24.6))(react@18.2.0)
+      react-native-heroicons:
+        specifier: ^4.0.0
+        version: 4.0.0(react-native-svg@15.3.0(react-native@0.74.1(@babel/core@7.24.6)(@babel/preset-env@7.24.6(@babel/core@7.24.6))(react@18.2.0))(react@18.2.0))(react@18.2.0)
       react-native-reanimated:
         specifier: ^3.12.0
         version: 3.12.0(@babel/core@7.24.6)(react-native@0.74.1(@babel/core@7.24.6)(@babel/preset-env@7.24.6(@babel/core@7.24.6))(react@18.2.0))(react@18.2.0)
@@ -1178,14 +1178,6 @@ packages:
     engines: {node: '>=14'}
     peerDependencies:
       '@svgr/core': '*'
-
-  '@tabler/icons-react-native@3.5.0':
-    resolution: {integrity: sha512-WsEyTQGSjKdKm4IJBVk2iRgh5HK3iiwqj40/HHhHJMMJqu4FEkeknzmKX1genul58+O1AYV9dYTubBb1yymQ5Q==}
-    peerDependencies:
-      react: ^16.5.1 || ^17.0.0 || ^18.0.0
-
-  '@tabler/icons@3.5.0':
-    resolution: {integrity: sha512-I53dC3ZSHQ2MZFGvDYJelfXm91L2bTTixS4w5jTAulLhHbCZso5Bih4Rk/NYZxlngLQMKHvEYwZQ+6w/WluKiA==}
 
   '@trysound/sax@0.2.0':
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
@@ -3521,6 +3513,12 @@ packages:
 
   react-is@18.3.1:
     resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
+
+  react-native-heroicons@4.0.0:
+    resolution: {integrity: sha512-RY3XhAr0aQxLtWUkIUifTUBYC3tOspe0pMTHTATpQYyg6Uw7PYO5qmHYFul9w8tvYAB43WDRZ+yomdVmMQ2Jqw==}
+    peerDependencies:
+      react: '>=16.8'
+      react-native-svg: '>=9'
 
   react-native-reanimated@3.12.0:
     resolution: {integrity: sha512-Bwa4jKL/QttnV8pQYiX+1N5a6XgL8yZtMyH+7UbEaW7ZeNCv1Pxp2PmYu/bP3LafCkmS9Yj/hY2adYNKe58g9A==}
@@ -6122,13 +6120,6 @@ snapshots:
       svgo: 3.3.2
     transitivePeerDependencies:
       - typescript
-
-  '@tabler/icons-react-native@3.5.0(react@18.2.0)':
-    dependencies:
-      '@tabler/icons': 3.5.0
-      react: 18.2.0
-
-  '@tabler/icons@3.5.0': {}
 
   '@trysound/sax@0.2.0': {}
 
@@ -8761,6 +8752,11 @@ snapshots:
   react-is@17.0.2: {}
 
   react-is@18.3.1: {}
+
+  react-native-heroicons@4.0.0(react-native-svg@15.3.0(react-native@0.74.1(@babel/core@7.24.6)(@babel/preset-env@7.24.6(@babel/core@7.24.6))(react@18.2.0))(react@18.2.0))(react@18.2.0):
+    dependencies:
+      react: 18.2.0
+      react-native-svg: 15.3.0(react-native@0.74.1(@babel/core@7.24.6)(@babel/preset-env@7.24.6(@babel/core@7.24.6))(react@18.2.0))(react@18.2.0)
 
   react-native-reanimated@3.12.0(@babel/core@7.24.6)(react-native@0.74.1(@babel/core@7.24.6)(@babel/preset-env@7.24.6(@babel/core@7.24.6))(react@18.2.0))(react@18.2.0):
     dependencies:

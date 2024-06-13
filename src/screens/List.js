@@ -1,13 +1,13 @@
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import { IconPlus, IconCreditCardPay } from '@tabler/icons-react-native'
+import { PlusIcon, CreditCardIcon } from 'react-native-heroicons/outline'
 
 export function List () {
   return (
-    <View>
+    <View style={{ flex: 1, width: '100%' }}>
       <Text>List</Text>
       <View style={styles.buttons}>
-        <TouchableOpacity style={styles.button}><IconPlus size={30} color='#222' /></TouchableOpacity>
-        <TouchableOpacity style={styles.button}><IconCreditCardPay size={40} color='#222' /></TouchableOpacity>
+        <TouchableOpacity style={styles.button}><PlusIcon size={30} color='#222' strokeWidth={3} /></TouchableOpacity>
+        <TouchableOpacity style={styles.button}><CreditCardIcon size={40} color='#222' /></TouchableOpacity>
       </View>
     </View>
   )
