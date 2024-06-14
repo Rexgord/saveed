@@ -19,11 +19,6 @@ export default function Load () {
     return () => animation.stop()
   }, [circleAnim])
 
-  const angle = circleAnim.interpolate({
-    inputRange: [0, 1],
-    outputRange: ['0deg', '360deg']
-  })
-
   return (
     <View style={styles.container}>
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -36,6 +31,7 @@ export default function Load () {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: '10%'

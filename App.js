@@ -35,7 +35,7 @@ export default function App () {
         </View>
       </Modal>
       <View style={styles.header}>
-        <Logo width={100} height={100} style={styles.img} />
+        <Logo width={100} height={100} />
         <Text style={styles.title}>saveed</Text>
       </View>
 
@@ -92,10 +92,5 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 30
-  },
-  img: {
-    width: 50,
-    aspectRatio: 1,
-    borderRadius: '100%'
   }
 })
